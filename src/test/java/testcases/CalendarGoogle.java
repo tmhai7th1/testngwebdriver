@@ -22,7 +22,6 @@ public class CalendarGoogle {
   public void beforeMethod(String browserName) {
 	  
 	  driver = DriverManagerFactory.getDriverManager(DriverType.valueOf(browserName)).getDriver();
-	  
   }
 
   @AfterMethod
