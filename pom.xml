@@ -6,7 +6,6 @@
   <name>testngwebdriver</name>
   <description>This is project which define architect TestNG framework</description>
   
-  
  <build>
 	    <!-- Source directory configuration -->
 	    <sourceDirectory>src</sourceDirectory>
@@ -46,6 +45,7 @@
    <artifactId>selenium-java</artifactId>
    <version>${selenium.version}</version>
   </dependency>
+  
   <dependency>
    <groupId>org.testng</groupId>
    <artifactId>testng</artifactId>
