@@ -4,7 +4,7 @@
   <artifactId>testngwebdriver</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>testngwebdriver</name>
-  <description>This is project which define architect TestNG</description>
+  <description>This is project which define architect TestNG framework</description>
   
   <properties>
   <selenium.version>3.141.59</selenium.version>
