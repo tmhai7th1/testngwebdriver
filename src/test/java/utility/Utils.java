@@ -19,7 +19,6 @@ public class Utils {
 	public static void takeScreenshot (Exception ex, WebDriver driver, String className, String methodName) throws IOException
 	{ 
 		try {
-			
 			String testcaseName  = className + "_" + methodName;
 			WebDriver augmentedDriver = new Augmenter().augment(driver);
 			File scrFile = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);

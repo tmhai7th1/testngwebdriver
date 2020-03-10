@@ -11,7 +11,6 @@ public class FirefoxDriverManager extends DriverManager {
 	protected void createDriver() {
 		
 		try {
-			
 			String pathDriver = new File(".").getCanonicalPath() + Constants.PATH_FIREFOXDRIVER;
 			System.setProperty("webdriver.gecko.driver",pathDriver);
 			this.driver = new FirefoxDriver();

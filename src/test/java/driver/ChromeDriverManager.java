@@ -14,13 +14,15 @@ public class ChromeDriverManager extends DriverManager {
 	protected void createDriver(){
 		
 		try {
+			
 			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			String pathDriver = new File(".").getCanonicalPath() + Constants.PATH_CHROMEDRIVER;
 			System.setProperty("webdriver.chrome.driver", pathDriver);
 			this.driver = new ChromeDriver(options);
-			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			this.driver.manage().deleteAllCookies();
-			this.driver.manage().window().maximize();  
+			this.driver.manage().window().maximize(); 
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

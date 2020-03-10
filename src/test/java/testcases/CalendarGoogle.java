@@ -1,13 +1,6 @@
 package testcases;
 
 import org.testng.annotations.Test;
-
-import driver.DriverManagerFactory;
-import driver.DriverType;
-import utility.Constants;
-import webpages.CalendarPage;
-import webpages.SignInPage;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import driver.DriverManagerFactory;
+import driver.DriverType;
+import utility.Constants;
+import webpages.CalendarPage;
+import webpages.SignInPage;
 
 public class CalendarGoogle {
 
@@ -29,6 +27,7 @@ public class CalendarGoogle {
 
   @AfterMethod
   public void afterMethod() {
+	  
 	  if (driver != null)
 	  {
 		  driver.quit();
@@ -68,6 +67,4 @@ public class CalendarGoogle {
 	  calendarPage.isDisplayedPupopDeleteSuccessful();
 	  Thread.sleep(5000);
   }
-  
-
 }

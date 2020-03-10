@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CalendarPage extends BasePage{
 
 	public CalendarPage(WebDriver driver) {
+		
 		super(driver);
 	}
 	
