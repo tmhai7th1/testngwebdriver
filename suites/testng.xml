@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "calendarGoogle">
+
+   <test name = "createTheAppointment_CHROME">
+   		<parameter name = "browserName" value="CHROME"/>
+		<classes>
+		   <class name = "testcases.CalendarGoogle">
+		   	<methods>
+		              <include name="createTheAppointment" />
+		      </methods>
+		   </class>
+		</classes>
+   </test>
+  
+</suite>  	
