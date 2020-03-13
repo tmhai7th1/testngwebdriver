@@ -1,32 +1,38 @@
 package driver;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.openqa.selenium.PageLoadStrategy;
+import java.util.List;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import utility.Constants;
+import utility.Log;
 
 public class ChromeDriverManager extends DriverManager {
-
+	
 	@Override
-	protected void createDriver(){
-		
-		try {
-			
-			ChromeOptions options = new ChromeOptions();
-			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-			String pathDriver = new File(".").getCanonicalPath() + Constants.PATH_CHROMEDRIVER;
-			System.setProperty("webdriver.chrome.driver", pathDriver);
-			this.driver = new ChromeDriver(options);
-			this.driver.manage().deleteAllCookies();
-			this.driver.manage().window().maximize(); 
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	protected void createDriver() {
+
+		this.driver = new ChromeDriver();
 	}
-
-
+	
+	@Override
+	protected void setUpDriverBinary(String browserVersion) {
+		
+		List<String> lsVersions = WebDriverManager.chromedriver().getVersions();
+    	if (lsVersions.size() > 0 && lsVersions.contains(browserVersion)) 
+    	{
+    		WebDriverManager.chromedriver().version(browserVersion).setup();
+    		
+    	}else
+		{
+    		if (browserVersion == null || browserVersion.length() == 0) 
+			{
+				WebDriverManager.chromedriver().setup();
+			}else
+			{
+				
+				Log.error(browserVersion +"of" + ChromeDriverManager.class.toString() + "does NOT support");
+			}
+		}
+		
+	}
+	
 }

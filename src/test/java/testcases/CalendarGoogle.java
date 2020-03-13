@@ -7,63 +7,93 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import driver.DriverManager;
 import driver.DriverManagerFactory;
-import driver.DriverType;
-import utility.Constants;
+import webpages.CalculatorPage;
 import webpages.CalendarPage;
+import driver.DriverType;
 import webpages.SignInPage;
 
 public class CalendarGoogle {
 
-  private WebDriver driver;
-  @Parameters({"browserName"})
-  @BeforeMethod
-  public void beforeMethod(String browserName) {
+	  private	DriverManager driverManager;
+	  private WebDriver driver;
 	  
-	  driver = DriverManagerFactory.getDriverManager(DriverType.valueOf(browserName)).getDriver();
-  }
-
-  @AfterMethod
-  public void afterMethod() {
-	  
-	  if (driver != null)
-	  {
-		  driver.quit();
+	  @Parameters({"BrowserName","BrowserVersion"})
+	  @BeforeClass
+	  public void beforeClass(String browserName, String browserVersion) {
+		  
+		  driverManager = DriverManagerFactory.getDriverManager(DriverType.valueOf(browserName));
+		  driverManager.createDriverBinary(browserVersion);
 	  }
-  }
-  
-  @Test
-  public void createTheAppointment() throws InterruptedException{
+	
+	  @AfterClass
+	  public void afterClass() {
+			
+		  driverManager.ClearCache();
+	  }
 	  
-	  driver.get(Constants.PAGE_URL);
-	  SignInPage signinpage = new SignInPage(driver);
+	  @BeforeMethod
+	  public void beforeMethod() {
+		 
+		  driver = driverManager.getDriver();
+		  driver.manage().deleteAllCookies();
+		  driver.manage().window().maximize();
+	  }
+	
+	  @AfterMethod
+	  public void afterMethod() {
+		  
+		  driverManager.quitDriver();
+	  }
 	  
-	  CalendarPage calendarPage = signinpage.login("zamodemo63@gmail.com", "demozamo@63");
+	  @Test
+	  public void createTheAppointment() throws InterruptedException{
+
+		  driver.get("https://calendar.google.com/calendar");
+		  SignInPage signinpage = new SignInPage(driver);
+		  
+		  CalendarPage calendarPage = signinpage.login("zamodemo63@gmail.com", "demozamo@63");
 	  
-	  Assert.assertTrue(calendarPage.isDisplayedUsername());
-	  Assert.assertEquals(calendarPage.getTextUsername(), "Zamo Demo");
+		  Assert.assertTrue(calendarPage.isDisplayedUsername());
+		  Assert.assertEquals(calendarPage.getTextUsername(), "Zamo Demo");
 	  
-	  Assert.assertTrue(calendarPage.isDisplayedAddButton());
-	  calendarPage.clickAddButton();
+		  Assert.assertTrue(calendarPage.isDisplayedAddButton());
+		  calendarPage.clickAddButton();
+		  
+		  calendarPage.isDisplayedAddTitleAppointment();
+		  calendarPage.enterAddTitleAppointment("Zamo Demo Appointment");
+		  
+		  calendarPage.clickSaveButton();
+			
+		  calendarPage.isDisplayedPupopSaveSuccessful();
+		  
+		  WebElement appointment = calendarPage.getAppointment();
+		  Assert.assertTrue(appointment.isDisplayed());
+		  
+		  Actions actions = new Actions(driver);
+		  actions.moveToElement(appointment).perform();
+		  actions.contextClick(appointment).perform();
+		  
+		  calendarPage.isDisplayedDeleteButton();
+		  calendarPage.clickDeleteButton();
+		  
+		  calendarPage.isDisplayedPupopDeleteSuccessful();
+		  Thread.sleep(5000);
+	  }	
 	  
-	  calendarPage.isDisplayedAddTitleAppointment();
-	  calendarPage.enterAddTitleAppointment("Zamo Demo Appointment");
-	  
-	  calendarPage.clickSaveButton();
-		
-	  calendarPage.isDisplayedPupopSaveSuccessful();
-	  
-	  WebElement appointment = calendarPage.getAppointment();
-	  Assert.assertTrue(appointment.isDisplayed());
-	  
-	  Actions actions = new Actions(driver);
-	  actions.contextClick(appointment).perform();
-	  
-	  calendarPage.isDisplayedDeleteButton();
-	  calendarPage.clickDeleteButton();
-	  
-	  calendarPage.isDisplayedPupopDeleteSuccessful();
-	  Thread.sleep(5000);
-  }
+	  @Test
+	  public void VerifyMultiplicationCalendar()
+	  {
+		  driver.get("https://ahfarmer.github.io/calculator/");
+		  CalculatorPage calculatorPage = new CalculatorPage(driver);
+		  calculatorPage.clicktw7();
+		  calculatorPage.clicktwx();
+		  calculatorPage.clicktw6();
+		  calculatorPage.clickttwequal();
+		  Assert.assertEquals(Integer.parseInt(calculatorPage.gettextcomponentdisplay()),42);
+	  }
 }

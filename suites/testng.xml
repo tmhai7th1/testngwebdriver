@@ -4,12 +4,14 @@
 <suite name = "calendarGoogle">
 
    <test name = "createTheAppointment_CHROME">
-   		<parameter name = "browserName" value="CHROME"/>
+   		<parameter name = "BrowserName" value="FIREFOX"/>
+   		<parameter name = "BrowserVersion" value=""/>
 		<classes>
 		   <class name = "testcases.CalendarGoogle">
-		   	<methods>
-		              <include name="createTheAppointment" />
-		      </methods>
+			   	<methods>
+			              <include name="createTheAppointment" />
+			              <include name="VerifyMultiplicationCalendar" />
+			      </methods>
 		   </class>
 		</classes>
    </test>

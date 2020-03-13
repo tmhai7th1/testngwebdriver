@@ -1,26 +1,34 @@
 package driver;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.List;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import utility.Log;
 
-import utility.Constants;
 public class FirefoxDriverManager extends DriverManager {
-
+	
 	@Override
 	protected void createDriver() {
 		
-		try {
-			String pathDriver = new File(".").getCanonicalPath() + Constants.PATH_FIREFOXDRIVER;
-			System.setProperty("webdriver.gecko.driver",pathDriver);
-			this.driver = new FirefoxDriver();
-			this.driver.manage().deleteAllCookies();
-			this.driver.manage().window().maximize();  
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		this.driver = new FirefoxDriver();
 	}
-
+	
+	@Override
+	protected void setUpDriverBinary(String browserVersion) {
+		List<String> lsVersions = WebDriverManager.firefoxdriver().getVersions();
+    	if (lsVersions.size() > 0 && lsVersions.contains(browserVersion)) 
+    	{
+    		WebDriverManager.firefoxdriver().version(browserVersion).setup();
+    		
+    	}else
+		{
+    		if (browserVersion == null || browserVersion.length() == 0) 
+			{
+				WebDriverManager.firefoxdriver().setup();
+			}else
+			{
+				Log.error(browserVersion +"of" + FirefoxDriverManager.class.toString() + "does NOT support");
+			}
+		}	
+	}
 }

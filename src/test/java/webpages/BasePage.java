@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
 	protected WebDriver driver;
+	protected WebDriverWait wait;
 	
 	public BasePage(WebDriver driver){
 		
@@ -19,7 +20,7 @@ public class BasePage {
 	
 	protected void waitForElementToVisibility(WebElement element){
 		
-		WebDriverWait wait = new WebDriverWait(driver, Constants.TIMEOUTINSECONDS, Constants.POLLING);
+		wait = new WebDriverWait(driver, Constants.TIMEOUTINSECONDS, Constants.POLLING);
 		wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
