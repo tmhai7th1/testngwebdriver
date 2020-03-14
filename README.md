@@ -7,7 +7,7 @@ The purpose of this project is to have a basic project with utility to manage We
 
 # Test architecture
 ### We will see the following items in this architecture:
-- Page Objects patters(Page Factory)
+- Page Objects patters (Page Factory)
 - Parallel execution
 - BaseTest (Precondition)
 - TestListner (Capture page screenshot when Testcase is Failed)
