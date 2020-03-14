@@ -16,31 +16,26 @@ import utility.Constants;
 
 public class Utils {
 
-	public static void takeScreenshot (Exception ex, WebDriver driver, String className, String methodName) throws IOException
+	public static void takeScreenshot (WebDriver driver, String messageEx, String className, String methodName)
 	{ 
-		try {
 			String testcaseName  = className + "_" + methodName;
-			WebDriver augmentedDriver = new Augmenter().augment(driver);
-			File scrFile = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
-			
 			String destination = getDestinationPath(testcaseName);
-			File destFile = new File(destination);
-			FileUtils.copyFile(scrFile, destFile);
-			
 			StringBuilder contentlog = new StringBuilder();
 			contentlog.append(testcaseName);
 			contentlog.append(Constants.STATUS_FAILED);
 			contentlog.append(System.lineSeparator());
 			contentlog.append(destination);
 			contentlog.append(System.lineSeparator());
-			contentlog.append(ex.getMessage());
-			
+			contentlog.append(messageEx);
 			Reporter.log(contentlog.toString());
-			
-		} catch (IOException ioe) {
-			Reporter.log(ioe.getMessage());
-			throw (ioe);
-		}
+			try {
+				WebDriver augmentedDriver = new Augmenter().augment(driver);
+				File scrFile = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
+				File destFile = new File(destination);
+				FileUtils.copyFile(scrFile, destFile);
+			} catch (IOException e) {
+				Log.error(e.getMessage());
+			}
 	}
 	
 	private static String getDestinationPath(String testcaseName)

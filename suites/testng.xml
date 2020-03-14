@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name = "calendarGoogle">
-
-   <test name = "createTheAppointment_CHROME">
-   		<parameter name = "BrowserName" value="FIREFOX"/>
-   		<parameter name = "BrowserVersion" value=""/>
+<suite name = "Demo testngwebdriver" parallel="tests" thread-count="2">
+	<listeners>
+	        <listener class-name="utility.TestListener"/>
+	</listeners>
+   <test name = "Chrome execution">
+   		<parameter name = "browser" value="CHROME"/>
+   		<parameter name = "v_browser" value="80.0.3987.16"/>
 		<classes>
 		   <class name = "testcases.CalendarGoogle">
 			   	<methods>
 			              <include name="createTheAppointment" />
-			              <include name="VerifyMultiplicationCalendar" />
+			              <include name="verifyMultiplicationCalendar" />
 			      </methods>
 		   </class>
 		</classes>
    </test>
-  
-</suite>  	
+   
+   <test name = "FIREFOX execution">
+   		<parameter name = "browser" value="FIREFOX"/>
+   		<parameter name = "v_browser" value=""/>
+		<classes>
+		   <class name = "testcases.CalendarGoogle">
+			   	<methods>
+			              <include name="verifyMultiplicationCalendar" />
+			      </methods>
+		   </class>
+		</classes>
+   	</test>
+</suite>

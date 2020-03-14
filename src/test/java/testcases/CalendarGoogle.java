@@ -1,56 +1,17 @@
 package testcases;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import driver.DriverManager;
-import driver.DriverManagerFactory;
 import webpages.CalculatorPage;
 import webpages.CalendarPage;
-import driver.DriverType;
+import test.BaseTest;
 import webpages.SignInPage;
 
-public class CalendarGoogle {
+public class CalendarGoogle extends BaseTest {
 
-	  private	DriverManager driverManager;
-	  private WebDriver driver;
-	  
-	  @Parameters({"BrowserName","BrowserVersion"})
-	  @BeforeClass
-	  public void beforeClass(String browserName, String browserVersion) {
-		  
-		  driverManager = DriverManagerFactory.getDriverManager(DriverType.valueOf(browserName));
-		  driverManager.createDriverBinary(browserVersion);
-	  }
-	
-	  @AfterClass
-	  public void afterClass() {
-			
-		  driverManager.ClearCache();
-	  }
-	  
-	  @BeforeMethod
-	  public void beforeMethod() {
-		 
-		  driver = driverManager.getDriver();
-		  driver.manage().deleteAllCookies();
-		  driver.manage().window().maximize();
-	  }
-	
-	  @AfterMethod
-	  public void afterMethod() {
-		  
-		  driverManager.quitDriver();
-	  }
-	  
-	  @Test
+	  @Test(description = "create a appointment into calendar google")
 	  public void createTheAppointment() throws InterruptedException{
 
 		  driver.get("https://calendar.google.com/calendar");
@@ -85,8 +46,8 @@ public class CalendarGoogle {
 		  Thread.sleep(5000);
 	  }	
 	  
-	  @Test
-	  public void VerifyMultiplicationCalendar()
+	  @Test(description = "verify multiplication from calculator")
+	  public void verifyMultiplicationCalendar()
 	  {
 		  driver.get("https://ahfarmer.github.io/calculator/");
 		  CalculatorPage calculatorPage = new CalculatorPage(driver);

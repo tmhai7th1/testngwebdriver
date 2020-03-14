@@ -3,13 +3,15 @@ package driver;
 import java.util.List;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import utility.Log;
 
 public class ChromeDriverManager extends DriverManager {
 	
 	@Override
 	protected void createDriver() {
-
+		
 		this.driver = new ChromeDriver();
 	}
 	
