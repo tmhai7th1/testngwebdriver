@@ -10,6 +10,6 @@ The purpose of this project is to have a basic project with utility to manage We
 - Page Objects patters(Page Factory)
 - Parallel execution
 - BaseTest (Precondition)
-- TestListner (Capture page screenshot when Testcase id Failed)
+- TestListner (Capture page screenshot when Testcase is Failed)
 - Logging
 
