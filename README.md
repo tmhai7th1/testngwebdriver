@@ -6,9 +6,9 @@ The purpose of this project is to have a basic project with utility to manage We
 	4. Install Maven in Eclipse IDE
 
 # Test architecture
-We will see the following items in this architecture:
-Page Objects patters(Page Factory)
-Parallel execution
-BaseTest (Precondition)
-TestListner (Capture page screenshot when Testcase id Failed)
-Logging
+	1. Page Objects patters(Page Factory)
+	2. Parallel execution
+	3. BaseTest (Precondition)
+	4. TestListner (Capture page screenshot when Testcase id Failed)
+	5. Logging
+
