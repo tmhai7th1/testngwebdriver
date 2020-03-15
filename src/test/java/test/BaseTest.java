@@ -19,12 +19,12 @@ public class BaseTest {
 	  public WebDriver getDriver() {
 	        return driver;
 	    }
-	  @Parameters({"browser","v_browser"})
+	  @Parameters({"browser","v_driver"})
 	  @BeforeClass
-	  public void beforeClass(String browser, String v_browser) {
+	  public void beforeClass(String browser, String v_driver) {
 		  
 		  driverManager = DriverManagerFactory.getDriverManager(DriverType.valueOf(browser));
-		  driverManager.createDriverBinary(v_browser);
+		  driverManager.createDriverBinary(v_driver);
 	  }
 	
 	  @AfterClass

@@ -14,20 +14,20 @@ public class FirefoxDriverManager extends DriverManager {
 	}
 	
 	@Override
-	protected void setUpDriverBinary(String browserVersion) {
+	protected void setUpDriverBinary(String v_driver) {
 		List<String> lsVersions = WebDriverManager.firefoxdriver().getVersions();
-    	if (lsVersions.size() > 0 && lsVersions.contains(browserVersion)) 
+    	if (lsVersions.size() > 0 && lsVersions.contains(v_driver)) 
     	{
-    		WebDriverManager.firefoxdriver().version(browserVersion).setup();
+    		WebDriverManager.firefoxdriver().version(v_driver).setup();
     		
     	}else
 		{
-    		if (browserVersion == null || browserVersion.length() == 0) 
+    		if (v_driver == null || v_driver.length() == 0) 
 			{
 				WebDriverManager.firefoxdriver().setup();
 			}else
 			{
-				Log.error(browserVersion +"of" + FirefoxDriverManager.class.toString() + "does NOT support");
+				Log.error(v_driver +"of" + FirefoxDriverManager.class.toString() + "does NOT support");
 			}
 		}	
 	}

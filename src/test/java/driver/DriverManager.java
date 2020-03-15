@@ -9,7 +9,7 @@ public abstract class DriverManager {
 	protected DriverType type;
 	
     protected abstract void createDriver();
-    protected abstract void setUpDriverBinary(String browserVersion);
+    protected abstract void setUpDriverBinary(String v_driver);
 
     public void quitDriver() {
     	
@@ -19,8 +19,8 @@ public abstract class DriverManager {
         }
     }
     
-    public void createDriverBinary(String browserVersion) {
-    	setUpDriverBinary(browserVersion);
+    public void createDriverBinary(String v_driver) {
+    	setUpDriverBinary(v_driver);
     }
 
     public WebDriver getDriver() {

@@ -18,21 +18,21 @@ public class IEDriverManager extends DriverManager {
 	}
 	
 	@Override
-	protected void setUpDriverBinary(String browserVersion) {
+	protected void setUpDriverBinary(String v_driver) {
 		
 		List<String> lsVersions = WebDriverManager.iedriver().getVersions();
-    	if (lsVersions.size() > 0 && lsVersions.contains(browserVersion)) 
+    	if (lsVersions.size() > 0 && lsVersions.contains(v_driver)) 
     	{
-    		WebDriverManager.iedriver().version(browserVersion).setup();
+    		WebDriverManager.iedriver().version(v_driver).setup();
     		
     	}else
 		{
-    		if (browserVersion == null || browserVersion.length() == 0) 
+    		if (v_driver == null || v_driver.length() == 0) 
 			{
 				WebDriverManager.iedriver().setup();
 			}else
 			{
-				Log.error(browserVersion +"of" + IEDriverManager.class.toString() + "does NOT support");
+				Log.error(v_driver +"of" + IEDriverManager.class.toString() + "does NOT support");
 			}
 		}
 	}

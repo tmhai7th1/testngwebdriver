@@ -6,25 +6,25 @@
 	</listeners>
    <test name = "Chrome execution">
    		<parameter name = "browser" value="CHROME"/>
-   		<parameter name = "v_browser" value="80.0.3987.16"/>
+   		<parameter name = "v_driver" value="80.0.3987.16"/>
 		<classes>
 		   <class name = "testcases.CalendarGoogle">
 			   	<methods>
 			              <include name="createTheAppointment" />
 			              <include name="verifyMultiplicationCalendar" />
-			      </methods>
+			     </methods>
 		   </class>
 		</classes>
    </test>
    
    <test name = "FIREFOX execution">
    		<parameter name = "browser" value="FIREFOX"/>
-   		<parameter name = "v_browser" value=""/>
+   		<parameter name = "v_driver" value="0.26.0"/>
 		<classes>
 		   <class name = "testcases.CalendarGoogle">
 			   	<methods>
 			              <include name="verifyMultiplicationCalendar" />
-			      </methods>
+			     </methods>
 		   </class>
 		</classes>
    	</test>
