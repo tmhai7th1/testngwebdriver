@@ -3,13 +3,17 @@ package driver;
 import java.util.List;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
 import utility.Log;
 
 public class FirefoxDriverManager extends DriverManager {
 	
 	@Override
 	protected void createDriver() {
-		
+		FirefoxOptions options = new FirefoxOptions();
+		options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 		this.driver = new FirefoxDriver();
 	}
 	
