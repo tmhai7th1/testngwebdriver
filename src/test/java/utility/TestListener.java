@@ -22,7 +22,7 @@ public class TestListener extends BaseTest implements ITestListener
     @Override
     public void onStart(ITestContext iTestContext) {
     	
-    	Log.info("I am in onStart method " + iTestContext.getName());
+    	 Log.info("I am in onStart method " + iTestContext.getName());
         iTestContext.setAttribute("WebDriver", this.driver);
     }
  
