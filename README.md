@@ -71,7 +71,6 @@ we will configure basic mutable items, like:
 
 #### Run project using Batch file 
 We need download testngwebdriver.zip file form github then unzip it and next step, make sure environment build project should have ready.
-Execute "Run Test.bat" file as administrator user
-We get test report form target\surefire-reports\index.html
+Execute "Run Test.bat" file as administrator user then we get test report form target\surefire-reports\index.html
 #### Run test suite in Eclipse IDE
 
