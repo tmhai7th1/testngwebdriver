@@ -69,14 +69,9 @@ we will configure basic mutable items, like:
 - value of browser : will be run at CHROME browser
 - value of v_driver : will be run at WebDriver binaries version 80.0.3987.16. Make sure current browser is supported by WebDriver binaries version (refer [WebDriver for Chrome](https://chromedriver.chromium.org/downloads), [WebDriver for FireFox](https://github.com/mozilla/geckodriver/releases))
 
-#### Maven run test suite using Batch file 
-We create Batch file 
-
-```python
-set projectLocation=D:\Source\Demo\testngwebdriver
-cd /d %projectLocation%
-mvn  clean test -DsuiteXmlFile=testng.xml
-pause
-```
+#### Run project using Batch file 
+We need download testngwebdriver.zip file form github then unzip it and next step, make sure environment build project should have ready.
+Execute "Run Test.bat" file as administrator user
+We get test report form target\surefire-reports\index.html
 #### Run test suite in Eclipse IDE
 
