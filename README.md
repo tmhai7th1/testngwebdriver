@@ -13,7 +13,7 @@ A automation project starting with a good test architecture. This project can be
 - Parallel execution
 - Logging
 
-#### Page Objects patters
+#### Page Objects patters (see [POM structure](https://drive.google.com/file/d/1WpEipAMsmkxoSJTKkR_LJoP6tNtnsznF/view))
 We will transform a testcase to script automation the following our test architecture
 
 Create successfully a appointment into calendar google
@@ -32,7 +32,7 @@ we must initialize the WebElements that we have annotated. We will make ([BasePa
 So now we have all the pieces to start writing the actual test cases, here is a function [createTheAppointment](https://github.com/tmhai7th1/testngwebdriver/blob/master/src/test/java/testcases/CalendarGoogle.java) going through the successful test scenario above
 
 #### DriverManager
-we come up with our own abstract class – DriverManager – which test classes could use to get a driver instance from it and use them in their tests(refer [factory pattern](https://drive.google.com/file/d/1b5Q1NatKRtOirhCssZ9RuFrd2JMHy_gp/view) in creating webDriver instance)
+we come up with our own abstract class – DriverManager – which test classes could use to get a driver instance from it and use them in their tests(refer [factory pattern](https://drive.google.com/file/d/1WpEipAMsmkxoSJTKkR_LJoP6tNtnsznF/view) in creating webDriver instance)
 
 Let's see the concrete implementation:
 - [Driver Manager](https://github.com/tmhai7th1/testngwebdriver/blob/master/src/test/java/driver/DriverManager.java)
