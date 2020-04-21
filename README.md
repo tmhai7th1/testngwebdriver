@@ -71,8 +71,8 @@ we will configure basic mutable items, like:
 
 #### Run test using Batch file 
 We need download "testngwebdriver.zip" file form github then unzip it and next step, make sure environment build project should have ready.
-Execute "Run Test.bat" file as administrator user then we get test report form target\surefire-reports\index.html
-* Notes: we can call to executed this batch file from a job of CI jenkins
+Execute "Run Test.bat" file as administrator user then we get test report form "target\surefire-reports\index.html" file
+##### Notes: we can call to executed this batch file from a job of CI jenkins
 #### Run test suite in Eclipse IDE
 "testngwebdriver.zip" file is ready on your machine
  - Clean and build project successfully with Eclipse IDE
