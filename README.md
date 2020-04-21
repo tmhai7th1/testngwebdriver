@@ -77,7 +77,7 @@ Execute "Run Test.bat" file as administrator user then we get test report form t
  - Clean and build project successfully with Eclipse IDE
  - Open Test Explorer on Eclipse IDE
  - Right click in "testng.xml" file, then choose Run As, selected TestNG Suite
- - Test project will be run with scenario above
+ - Test project will be run with above scenario
  
 We get test report form "test-output\index.html" file
 
