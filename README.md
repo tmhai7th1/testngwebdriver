@@ -13,7 +13,7 @@ A automation project starting with a good test architecture. This project can be
 - Parallel execution
 - Logging
 
-#### Page Objects patters (see [POM structure](https://drive.google.com/file/d/1WpEipAMsmkxoSJTKkR_LJoP6tNtnsznF/view))
+#### Page Objects patters (see [POM structure for project](https://drive.google.com/file/d/1WpEipAMsmkxoSJTKkR_LJoP6tNtnsznF/view))
 We will transform a testcase to script automation the following our test architecture
 
 Create successfully a appointment into calendar google
