@@ -6,8 +6,8 @@
 	</listeners>
 
    <test name = "FIREFOX execution">
-   		<parameter name = "browser" value="FIREFOX"/>
-   		<parameter name = "v_driver" value="0.26.0"/>
+   		<parameter name = "browser" value="CHROME"/>
+   		<parameter name = "v_driver" value="80.0.3987.16"/>
 		<classes>
 		   <class name = "testcases.CalendarGoogle">
 			   	<methods>
